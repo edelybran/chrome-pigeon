@@ -6,7 +6,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="min-h-screen bg-zinc-50 font-sans text-zinc-900">
-        <header className="flex flex-col items-center pt-16">
+        <header className="flex flex-col items-center">
           <Image
             src="/chromePigeon.svg"
             alt="Chrome Pigeon header"
