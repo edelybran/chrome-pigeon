@@ -1,32 +1,27 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
+import { NavTabs } from "./NavTabs";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "Chrome Pigeon",
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className="min-h-screen bg-zinc-50 font-sans text-zinc-900">
+        <header className="flex flex-col items-center">
+          <Image
+            src="/chromePigeon.svg"
+            alt="Chrome Pigeon header"
+            width={2400}
+            height={720}
+            priority
+            className="h-auto w-full max-w-[1200px] px-6"
+          />
+
+          <NavTabs />
+        </header>
+
+        <main className="mx-auto max-w-6xl px-6 pb-20">
+          {children}
+        </main>
       </body>
     </html>
   );
